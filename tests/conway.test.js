@@ -1,4 +1,4 @@
-import Conway from '../src/conway';
+import Conway from '../src/client/conway';
 
 test('Conway.board', () => {
   const test = Conway(2, 2, [[0, 0]]);
