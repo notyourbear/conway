@@ -1,0 +1,23 @@
+{
+  "name": "conway",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:notyourbear/conway.git",
+  "author": "notyourbear <pracenberg@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "babel-node src",
+    "test": "eslint src && eslint tests && jest --coverage"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-jest": "^19.0.0",
+    "babel-preset-env": "^1.2.1",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "latest",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2 || ^4.0.0",
+    "eslint-plugin-react": "^6.9.0",
+    "jest": "^19.0.2"
+  }
+}
