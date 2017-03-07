@@ -1,8 +1,8 @@
-import webpack from 'webpack';
-import path from 'path';
+import path from 'path'
+import webpack from 'webpack'
 
-import { WDS_PORT } from './src/shared/config';
-import { isProd } from './src/shared/util';
+import { WDS_PORT } from './src/shared/config'
+import { isProd } from './src/shared/util'
 
 export default {
   entry: [
@@ -25,12 +25,12 @@ export default {
   },
   devServer: {
     port: WDS_PORT,
-    hot: true
+    hot: true,
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-  ]
-};
+  ],
+}
