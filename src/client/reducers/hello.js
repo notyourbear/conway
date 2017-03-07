@@ -7,12 +7,10 @@ const initialState = {
 const helloReducer = (state = initialState, action) => {
   switch (action.type) {
     case SAY_HELLO:
-      const newState = {
+      return {
         ...state,
         message: action.payload,
       };
-
-      return newState;
     default: return state;
   }
 };
