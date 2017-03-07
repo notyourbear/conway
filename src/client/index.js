@@ -1,3 +1,5 @@
-const str = 'ES6';
-// eslint-disable-next-line no-console
-console.log(`Hello ${str}`);
+import 'babel-polyfill';
+
+import { APP_CONTAINER_SELECTOR } from '../shared/config';
+
+document.querySelector(APP_CONTAINER_SELECTOR).innerHTML = '<h1>Hello Webpack!</h1>';
