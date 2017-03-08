@@ -1,18 +1,31 @@
 import React, { PropTypes } from 'react';
 
+const styles = {
+  board: {
+  },
+  cell: {
+    height: '10px',
+    width: '10px',
+    display: 'inline-block',
+    background: 'orange',
+    margin: '2px',
+  }
+}
+
 const Board = ({board, handleClickFn}) => {
-  const rows = board.map((col, i) => {
-    const spans = col.map((piece, y) => {
-      let classNames = 'piece';
-      if(piece) classNames += ' alive';
-      return <span className={classNames} onClick={handleClickFn} key={y}></span>;
+  const rows = board.map((col, rowIndex) => {
+    const spans = col.map((isAlive, colIndex) => {
+      let style = Object.assign({}, styles.cell);
+      if(isAlive) style.background = 'grey';
+
+      return <span style={style} onClick={handleClickFn.bind(this, ([rowIndex, colIndex]))} key={colIndex}></span>;
     });
-    return <div className='row' key={i}>{spans}</div>;
+    return <div className='row' key={rowIndex}>{spans}</div>;
   });
 
 
   return (
-    <div className='gameBoard'>
+    <div style={styles.board} className='gameBoard'>
       { rows }
     </div>
   )

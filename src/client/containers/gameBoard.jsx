@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  handleClickFn: () => { dispatch(changeState()) },
+  handleClickFn: (location) => { dispatch(changeState(location)) },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board);

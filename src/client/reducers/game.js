@@ -13,6 +13,11 @@ const helloReducer = (state = initialState, action) => {
         ...state,
         message: action.payload,
       };
+    case 'CHANGE_STATE':
+      return {
+        ...state,
+        board: game.changeState(state.board, action.payload),
+      };
     default: return state;
   }
 };

@@ -10,9 +10,20 @@ const Conway = (height, width, startLocations) => {
     return board;
   };
 
+  const copyBoard = (board) => {
+    return board.map(row => row.slice());
+  };
+
   const addPiece = (board, location, isAlive) => {
     const [row, col] = location;
     board[row][col] = isAlive;
+  };
+
+  const changeState = (board, location) => {
+    const newBoard = copyBoard(board);
+    const [row, col] = location;
+    newBoard[row][col] = !(board[row][col]);
+    return newBoard;
   };
 
   const starter = () => {
@@ -22,16 +33,6 @@ const Conway = (height, width, startLocations) => {
     });
     return board;
   };
-
-  // const display = (board) => {
-  //   const d = board.map((row) => {
-  //     return row.reduce((acc, alive) => {
-  //       const newAcc = alive ? `${acc}*` : `${acc} `;
-  //       return newAcc;
-  //     }, '');
-  //   });
-  //   d.forEach(r => console.log(r));
-  // };
 
   const calculateAliveNeighbours = (board, location) => {
     const [row, col] = location;
@@ -54,7 +55,7 @@ const Conway = (height, width, startLocations) => {
   };
 
   const tick = (board) => {
-    const newBoard = board.map(row => row.slice());
+    const newBoard = copyBoard(board);
     board.forEach((row, i) => {
       row.forEach((col, y) => {
         const aliveN = calculateAliveNeighbours(board, [i, y]);
@@ -77,6 +78,7 @@ const Conway = (height, width, startLocations) => {
   return {
     board,
     tick,
+    changeState,
   };
 };
 

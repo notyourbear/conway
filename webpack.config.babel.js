@@ -1,5 +1,6 @@
 import path from 'path'
 import webpack from 'webpack'
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import { WDS_PORT } from './src/shared/config'
 import { isProd } from './src/shared/util'
@@ -16,7 +17,16 @@ export default {
   },
   module: {
     rules: [
-      { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
+      {
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader',
+        include: path.join(__dirname, 'client'),
+      },
     ],
   },
   devtool: isProd ? false : 'source-map',
