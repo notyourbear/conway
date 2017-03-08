@@ -9,14 +9,20 @@ const initialState = {
 const helloReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'START_UP':
+      const newGame = Conway(10, 10, [[4, 4], [4, 5], [4, 6]]);
       return {
         ...state,
-        message: action.payload,
+        board: newGame.board,
       };
     case 'CHANGE_STATE':
       return {
         ...state,
         board: game.changeState(state.board, action.payload),
+      };
+    case 'TICK':
+      return {
+        ...state,
+        board: game.tick(state.board),
       };
     default: return state;
   }
