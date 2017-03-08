@@ -1,12 +1,14 @@
-import { SAY_HELLO } from '../actions/hello';
+import Conway from '../conway';
+
+const game = Conway(10, 10, [[4, 4], [4, 5], [4, 6]]);
 
 const initialState = {
-  message: 'Initial reducer message',
+  board: game.board,
 };
 
 const helloReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SAY_HELLO:
+    case 'START_UP':
       return {
         ...state,
         message: action.payload,

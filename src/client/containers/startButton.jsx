@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
 
-import { sayHello } from '../actions/hello';
+import { startUp } from '../actions/options';
 import Button from '../components/button';
 
-const mapStateToProps = () => ({
-  label: 'Say hello',
-});
+const mapStateToProps = () => {
+  return {
+    label: 'Start',
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
-  handleClickFn: () => { dispatch(sayHello('Hello!')) },
+  handleClickFn: () => { dispatch(startUp()) },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Button);
