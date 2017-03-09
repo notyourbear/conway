@@ -32,9 +32,25 @@ const styles = {
   title: {
     color: '#41403E',
     padding: '45px 0 15px',
-    'fontSize': '2rem',
+    'fontSize': '3rem',
     textAlign: 'center'
+  },
+  horizontal: {
+    width: '750px',
+    height: '1px',
+    position: 'absolute',
+    background: '#dedede',
+    left: '0',
+    opacity: '.5',
   }
+}
+
+var horizontals = [];
+
+for(let i = 1; i < 35; i++){
+  let style = Object.assign({}, styles.horizontal)
+  style.top = `${i * 20}px`
+  horizontals.push(style);
 }
 
 const App = () => {
@@ -48,6 +64,7 @@ const App = () => {
         <ResetButton />
       </div>
       <div style={styles.lines}>&nbsp;</div>
+      { horizontals.map((styles, i) => <div key={i} style={styles}>&nbsp;</div>)}
       <Gameboard />
     </div>
   );
