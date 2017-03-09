@@ -1,7 +1,11 @@
 import React, { PropTypes } from 'react';
 
 function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.round(Math.random() * (max - min) + min);
+};
+
+const colors = {
+  purple: ['#663399', '#674172', '#8E44AD', '#913D88', '#9B59B6']
 };
 
 const styles = {
@@ -17,25 +21,30 @@ const styles = {
   cell: {
     flex: '0 1 3%',
     margin: '.5%',
-    background: 'orange',
-  }
-}
+    background: '#ECECEC',
+  },
+};
 
 const Board = ({board, handleClickFn}) => {
   const rows = board.map((col, rowIndex) => {
     const spans = col.map((isAlive, colIndex) => {
       let style = Object.assign({}, styles.cell);
-      if(isAlive) style.background = 'grey';
-      let borders = [];
-      for(let i = 0; i < 7; i++){
-        borders.push(getRandomArbitrary(35,55))
-      }
-      borders = borders.reduce((acc, item, i) => {
-        return i !== 3 ? acc += `${item}px ` : acc += `${item}px/${item}px `;
-      }, '')
+      let num = getRandomArbitrary(0,4);
 
-      style['borderRadius'] = borders;
-      console.log(style)
+      if(isAlive){
+        let borders = [];
+
+        for(let i = 0; i < 7; i++){
+          borders.push(getRandomArbitrary(25,75))
+        }
+
+        borders = borders.reduce((acc, item, i) => {
+          return i !== 3 ? acc += `${item}px ` : acc += `${item}px/${item}px `;
+        }, '')
+
+        style.background = colors.purple[num];
+        style.borderRadius = borders;
+      }
 
       return <div style={style} onClick={handleClickFn.bind(this, ([rowIndex, colIndex]))} key={colIndex}>&nbsp;</div>;
     });
