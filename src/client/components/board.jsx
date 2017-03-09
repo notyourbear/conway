@@ -1,5 +1,9 @@
 import React, { PropTypes } from 'react';
 
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+};
+
 const styles = {
   board: {
     width: '80%',
@@ -22,12 +26,21 @@ const Board = ({board, handleClickFn}) => {
     const spans = col.map((isAlive, colIndex) => {
       let style = Object.assign({}, styles.cell);
       if(isAlive) style.background = 'grey';
+      let borders = [];
+      for(let i = 0; i < 7; i++){
+        borders.push(getRandomArbitrary(35,55))
+      }
+      borders = borders.reduce((acc, item, i) => {
+        return i !== 3 ? acc += `${item}px ` : acc += `${item}px/${item}px `;
+      }, '')
+
+      style['borderRadius'] = borders;
+      console.log(style)
 
       return <div style={style} onClick={handleClickFn.bind(this, ([rowIndex, colIndex]))} key={colIndex}>&nbsp;</div>;
     });
     return <div style={styles.row} key={rowIndex}>{spans}</div>;
   });
-
 
   return (
     <div style={styles.board} className='gameBoard'>
