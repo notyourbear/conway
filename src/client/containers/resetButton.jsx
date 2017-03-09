@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 
-import { stop } from '../actions/options';
+import { reset } from '../actions/options';
 import Button from '../components/button';
 
 const mapStateToProps = (props) => {
   return {
-    label: 'Stop',
+    label: 'Reset',
     intervalId: props.game.intervalId,
   }
 };
@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => {
   return {
     handleClickFn: (intervalId) => {
       clearInterval(intervalId);
-      return dispatch(stop());
+      return dispatch(reset());
     },
   };
 };

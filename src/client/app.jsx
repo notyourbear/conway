@@ -2,6 +2,7 @@ import React from 'react';
 import StartButton from './containers/startButton';
 import StopButton from './containers/stopButton';
 import TickButton from './containers/tickButton';
+import ResetButton from './containers/resetButton';
 import Gameboard from './containers/gameBoard';
 import { APP_NAME } from '../shared/config';
 
@@ -12,6 +13,7 @@ const App = () => {
       <StartButton />
       <TickButton />
       <StopButton />
+      <ResetButton />
       <Gameboard />
     </div>
   );
