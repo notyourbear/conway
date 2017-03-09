@@ -10,3 +10,9 @@ test('Conway.tick', () => {
   test.board = test.tick(test.board);
   expect(test.board).toEqual([[false, false, false], [true, true, true], [false, false, false]]);
 });
+
+test('Conway.changeState', () => {
+  const test = Conway(2, 2, []);
+  test.board = test.changeState(test.board, [0, 0]);
+  expect(test.board).toEqual([[true, false], [false, false]]);
+});
