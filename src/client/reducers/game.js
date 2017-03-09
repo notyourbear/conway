@@ -1,6 +1,6 @@
 import Conway from '../conway';
 
-const game = Conway(10, 10, [[4, 4], [4, 5], [4, 6]]);
+const game = Conway(15, 25, [[4, 4], [4, 5], [4, 6]]);
 
 const initialState = {
   board: game.board,
@@ -9,7 +9,7 @@ const initialState = {
 const helloReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'START_UP':
-      const newGame = Conway(10, 10, [[4, 4], [4, 5], [4, 6]]);
+      const newGame = Conway(15, 25, [[4, 4], [4, 5], [4, 6]]);
       return {
         ...state,
         board: newGame.board,

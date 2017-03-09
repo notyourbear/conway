@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 
-import { startUp, tick } from '../actions/options';
+import { stop } from '../actions/options';
 import Button from '../components/button';
 
 const mapStateToProps = () => {
   return {
-    label: 'Start',
+    label: 'Stop',
   }
 };
 
-const mapDispatchToProps = dispatch => {
-  return ({ handleClickFn: () => { dispatch(startUp()) } });
-}
+const mapDispatchToProps = dispatch => ({
+  handleClickFn: () => { dispatch(stop()) },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Button);
