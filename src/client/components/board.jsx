@@ -10,8 +10,10 @@ const colors = {
 
 const styles = {
   board: {
-    width: '80%',
-    margin: '20px auto',
+    width: '70%',
+    margin: '50px auto',
+    border: '4px dashed #41403E',
+    borderRadius: '255px 15px 225px 15px/15px 225px 15px 255px',
   },
   row: {
     display: 'flex',
@@ -21,7 +23,7 @@ const styles = {
   cell: {
     flex: '0 1 3%',
     margin: '.5%',
-    background: '#ECECEC',
+    cursor: 'pointer',
   },
 };
 
