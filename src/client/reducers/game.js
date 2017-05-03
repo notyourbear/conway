@@ -1,6 +1,8 @@
 import Conway from '../conway';
 
-const game = Conway(15, 25, [[4, 4], [4, 5], [4, 6]]);
+const height = 15;
+const width = 25;
+const game = Conway(height, width);
 
 const initialState = {
   board: game.board,
@@ -19,7 +21,7 @@ const helloReducer = (state = initialState, action) => {
         intervalId: null,
       };
     case 'RESET':
-      const newGame = Conway(15, 25, [[4, 4], [4, 5], [4, 6]]);
+      const newGame = Conway(height, width);
       return {
         ...state,
         intervalId: null,

@@ -8,6 +8,7 @@
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-param-reassign": ["off"],
     "arrow-body-style": ["off"],
-    "no-case-declarations": ["off"]
+    "no-case-declarations": ["off"],
+    "no-mixed-operators": ["off"]
   }
 }

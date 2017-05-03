@@ -1,4 +1,17 @@
-const Conway = (height, width, startLocations) => {
+const addRandomPieces = (height, width, num) => {
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  const pieces = [];
+
+  for (let i = 0; i < num; i++) {
+    const loc = [getRandomInt(0, height - 1), getRandomInt(0, width - 1)];
+    pieces.push(loc);
+  }
+  return pieces;
+};
+
+const Conway = (height, width, startLocations = addRandomPieces(height, width, 55)) => {
   const makeBoard = () => {
     const board = [];
     for (let i = 0; i < height; i++) {

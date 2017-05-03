@@ -4,6 +4,12 @@ body {
   font-family: sans-serif;
 }
 
-h1 {
-  color: limegreen;
+.cell {
+  cursor: pointer;
+  padding: 1px 3px;
+  margin: 2px;
+}
+
+.cell:hover{
+  background: #d3d3d3;
 }
