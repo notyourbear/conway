@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import injectSheet from 'react-jss'
 
 function getRandomArbitrary(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -11,28 +10,29 @@ const colors = {
 
 const styles = {
   board: {
-    width: '70%',
+    width: '75%',
     margin: '50px auto',
     border: '4px dashed #41403E',
     borderRadius: '255px 15px 225px 15px/15px 225px 15px 255px',
   },
   row: {
     display: 'flex',
+    width: '75%',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   cell: {
-    flex: '0 1 3%',
+    flex: '0 1px 3%',
     margin: '1%',
     padding: '1%',
     cursor: 'pointer',
   },
 };
 
-const Board = ({classes, board, handleClickFn}) => {
+const Board = ({board, handleClickFn}) => {
   const rows = board.map((col, rowIndex) => {
     const spans = col.map((isAlive, colIndex) => {
-      let style = Object.assign({}, classes.cell);
+      let style = Object.assign({}, styles.cell);
       let num = getRandomArbitrary(0,4);
 
       if(isAlive){
@@ -67,4 +67,4 @@ Board.propTypes = {
   handleClickFn: PropTypes.func.isRequired
 }
 
-export default injectSheet(styles)(Board);
+export default Board;

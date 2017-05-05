@@ -3,8 +3,8 @@ import React, { PropTypes } from 'react';
 const style = {
   background: 'transparent',
   fontFamily: 'Architects Daughter',
-  padding:' .35rem .35rem',
-  margin: '0 1rem',
+  padding:' .25rem .35rem',
+  margin: '-1rem 1rem 0',
   transition: 'all .5s ease',
   color: '#41403E',
   fontSize: '1.15rem',

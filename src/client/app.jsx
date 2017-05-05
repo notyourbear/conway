@@ -9,8 +9,8 @@ import { APP_NAME } from '../shared/config';
 const styles = {
   body: {
     fontFamily: 'Architects Daughter',
-    width: '750px',
-    height: '700px',
+    width: '850px',
+    height: '950px',
     margin: '0 auto',
     backgroundColor: '#FAF2AD',
     position: 'relative',
@@ -23,7 +23,7 @@ const styles = {
     position: 'absolute',
     top: '0',
     left: '10%',
-    height: '700px',
+    height: '950px',
   },
   header: {
     width: '60%',
@@ -36,18 +36,20 @@ const styles = {
     textAlign: 'center'
   },
   horizontal: {
-    width: '750px',
-    height: '1px',
+    width: '850px',
+    height: '3px',
     position: 'absolute',
     background: '#dedede',
     left: '0',
-    opacity: '.5',
+    opacity: '.4',
+    borderTop: '0px',
+    borderBottom: '0px',
   }
 }
 
 var horizontals = [];
 
-for(let i = 1; i < 35; i++){
+for(let i = 1; i < 48; i++){
   let style = Object.assign({}, styles.horizontal)
   style.top = `${i * 20}px`
   horizontals.push(style);
