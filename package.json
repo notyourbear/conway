@@ -5,6 +5,9 @@
   "repository": "git@github.com:notyourbear/conway.git",
   "author": "notyourbear <pracenberg@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "7.7.3"
+  },
   "scripts": {
     "start": "yarn dev:start",
     "dev:start": "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
