@@ -2,9 +2,6 @@ import path from 'path'
 import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-import { WDS_PORT } from './src/shared/config'
-import { isProd } from './src/shared/util'
-
 export default {
   entry: [
     'react-hot-loader/patch',
@@ -13,7 +10,7 @@ export default {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist/js'),
-    publicPath: `http://localhost:${WDS_PORT}/dist/js/`,
+    publicPath: `http://localhost:7000/dist/js/`,
   },
   module: {
     rules: [
@@ -29,12 +26,12 @@ export default {
       },
     ],
   },
-  devtool: isProd ? false : 'source-map',
+  devtool: false,
   resolve: {
     extensions: ['.js', '.jsx'],
   },
   devServer: {
-    port: WDS_PORT,
+    port: 7000,
     hot: true,
   },
   plugins: [

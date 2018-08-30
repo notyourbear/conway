@@ -4,7 +4,6 @@ import StopButton from './containers/stopButton';
 import TickButton from './containers/tickButton';
 import ResetButton from './containers/resetButton';
 import Gameboard from './containers/gameBoard';
-import { APP_NAME } from '../shared/config';
 
 const styles = {
   body: {
@@ -59,7 +58,7 @@ const App = () => {
   return (
     <div style={styles.body}>
       <div style={styles.header}>
-        <h1 style={styles.title}>{APP_NAME}</h1>
+        <h1 style={styles.title}>Conway's Game</h1>
         <StartButton />
         <TickButton />
         <StopButton />

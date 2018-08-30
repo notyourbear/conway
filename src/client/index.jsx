@@ -8,14 +8,10 @@ import { createStore, combineReducers } from 'redux';
 
 import App from './app';
 import gameReducer from './reducers/game';
-import { APP_CONTAINER_SELECTOR } from '../shared/config';
-import { isProd } from '../shared/util';
 
-const store = createStore(combineReducers({ game: gameReducer }),
-  // eslint-disable-next-line no-underscore-dangle
-  isProd ? undefined : window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(combineReducers({ game: gameReducer }))
 
-const rootEl = document.querySelector(APP_CONTAINER_SELECTOR);
+const rootEl = document.querySelector('.js-app');
 
 const wrapApp = (AppComponent, reduxStore) => {
   return (

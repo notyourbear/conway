@@ -1,7 +1,7 @@
 {
   "name": "conway",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "1.0.1",
+  "main": "index.html",
   "repository": "git@github.com:notyourbear/conway.git",
   "author": "notyourbear <pracenberg@gmail.com>",
   "license": "MIT",
@@ -10,11 +10,7 @@
     "dev:start": "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
     "dev:wds": "webpack-dev-server --progress",
     "test": "eslint src && eslint tests && jest --coverage",
-    "precommit": "yarn test",
-    "prepush": "yarn test && yarn prod:build",
     "prod:build": "rimraf lib dist && babel src -d lib && NODE_ENV=production webpack -p --progress",
-    "prod:start": "heroku local",
-    "heroku-postbuild": "yarn prod:build",
     "lint": "eslint src webpack.config.babel.js --ext .js,.jsx"
   },
   "devDependencies": {
